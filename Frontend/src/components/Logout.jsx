@@ -8,8 +8,8 @@ function Logout() {
   const [authUser, setAuthUser] = useAuth();
   const navigate = useNavigate();
   const handleLogout = async () => {
-    await axios.post("/api/user/logout") //url ->  http://localhost:6002/user/signup
-    // await axios.post(`${import.meta.env.VITE_API_URL}/api/user/logout`, {}, {withCredentials: true,})
+    // await axios.post("/api/user/logout") //url ->  http://localhost:6002/user/signup
+    await axios.post(`${import.meta.env.VITE_API_URL}/api/user/logout`, {}, {withCredentials: true,})
       .then((response) => {
         if (response.data) {
           setAuthUser({
