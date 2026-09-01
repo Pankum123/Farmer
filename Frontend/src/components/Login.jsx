@@ -20,8 +20,8 @@ function Login() {
       email: data.email,
       password: data.password,
     };
-    await axios.post("/api/user/login", userInfo) //url ->  http://localhost:6002/user/signup
-    // await axios.post(`${import.meta.env.VITE_API_URL}/api/user/login`, userInfo, {withCredentials: true, })
+    // await axios.post("/api/user/login", userInfo) //url ->  http://localhost:6002/user/signup
+    await axios.post(`${import.meta.env.VITE_API_URL}/api/user/login`, userInfo, {withCredentials: true, })
       .then((response) => {
         if (response.data) {
           toast.success("Login successful");

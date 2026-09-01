@@ -32,8 +32,8 @@ function Signup() {
       password: data.password,
       confirmPassword: data.confirmPassword,
     };
-      await axios.post("/api/user/signup", userInfo) //url ->  http://localhost:6002/user/signup
-      // await axios.post(`${import.meta.env.VITE_API_URL}/api/user/signup`, userInfo) 
+      // await axios.post("/api/user/signup", userInfo) //url ->  http://localhost:6002/user/signup
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/user/signup`, userInfo) 
       .then((response) => {
         if (response.data) {
           toast.success("Signup successful");
