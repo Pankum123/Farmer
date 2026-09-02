@@ -11,8 +11,9 @@ function NavBar() {
     <>
 
       <li><Link to="/">Home</Link></li>
-      <li><Link to="/lessons">Lessons</Link></li>
-      <li><Link to="/dashboard">Dashboard</Link></li>
+      <li><Link to="/mandi">Mandi Prices</Link></li>
+      <li><Link to="/farmer">Farmer</Link></li>
+      <li><Link to="/buyer">Buyer</Link></li>
 
     </>
   );

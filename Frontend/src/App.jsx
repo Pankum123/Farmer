@@ -5,8 +5,10 @@ import Signup from "./components/Signup"
 import Home from "./home/Home"
 import { Toaster } from "react-hot-toast"
 import { useAuth } from "./context/AuthProvider"
-import Dashboard from "./dashboard/Dashboard"
-import Lessons from "./lessons/Lessons"
+import Mandi from "./mandi/Mandi"
+import Farmer from "./farmer/Farmer"
+import Buyer from "./buyer/Buyer"
+
 
 
 function App() {
@@ -24,13 +26,21 @@ function App() {
         />
 
          {/* <Route path="/dashboard" element={authUser ? <Dashboard /> : <Navigate to="/signup" />} /> */}
+
+        
         <Route
-          path="/dashboard"
-          element={<Dashboard/>}
+          path="/mandi"
+          element={<Mandi/>}
         />
+
         <Route
-          path="/lessons"
-          element={<Lessons/>}
+          path="/farmer"
+          element={<Farmer/>}
+        />
+
+        <Route
+          path="/buyer"
+          element={<Buyer/>}
         />
 
         <Route

@@ -1,11 +1,10 @@
-import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 
 import Footer from "../components/Footer";
-import CommunityBody from "../components/CommunityBody"
+import FarmerBody from "../components/FarmerBody";
 
 
-function Community() {
+function Farmer() {
   // const [show, setShow] = useState(false);
   return (
 
@@ -13,7 +12,7 @@ function Community() {
       <Navbar/>
 
       {/* Main content area grows to fill remaining height */}
-      <CommunityBody/>
+      <FarmerBody/>
 
       <Footer />
     </div>
@@ -21,4 +20,4 @@ function Community() {
   );
 }
 
-export default Community;
+export default Farmer;

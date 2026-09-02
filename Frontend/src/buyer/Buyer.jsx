@@ -1,19 +1,18 @@
-
 import Navbar from "../components/Navbar";
 
 import Footer from "../components/Footer";
-import LessonsBody from "../components/LessonsBody";
+import BuyerBody from "../components/BuyerBody";
 
 
-
-function Lessons() {
+function Buyer() {
+  // const [show, setShow] = useState(false);
   return (
 
      <div className="min-h-screen flex flex-col">
       <Navbar/>
 
       {/* Main content area grows to fill remaining height */}
-      <LessonsBody/>
+      <BuyerBody/>
 
       <Footer />
     </div>
@@ -21,4 +20,4 @@ function Lessons() {
   );
 }
 
-export default Lessons;
+export default Buyer;

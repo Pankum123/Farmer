@@ -1,19 +1,18 @@
-
 import Navbar from "../components/Navbar";
 
 import Footer from "../components/Footer";
-import ProfileBody from "../components/ProfileBody";
+import MandiBody from "../components/MandiBody";
 
 
-
-function Profile() {
+function Mandi() {
+  // const [show, setShow] = useState(false);
   return (
 
      <div className="min-h-screen flex flex-col">
       <Navbar/>
 
       {/* Main content area grows to fill remaining height */}
-        <ProfileBody/>
+      <MandiBody/>
 
       <Footer />
     </div>
@@ -21,4 +20,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Mandi;
