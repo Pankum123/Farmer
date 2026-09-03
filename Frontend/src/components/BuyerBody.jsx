@@ -210,7 +210,7 @@ function BuyerBody() {
 
   return (
     <div className="max-w-screen-2xl container mx-auto md:px-20 bg-gradient-to-b from-slate-100 via-emerald-50/20 to-slate-100 min-h-screen font-sans pb-16">
-      <main className="bg-white rounded-3xl shadow-2xl mt-15 overflow-hidden border border-slate-200/80">
+      <main className="bg-white rounded-3xl shadow-2xl mt-12 overflow-hidden border border-slate-200/80">
         
         {/* Header */}
         <section className="bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 text-white p-8 relative overflow-hidden">
