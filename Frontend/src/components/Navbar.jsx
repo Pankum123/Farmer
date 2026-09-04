@@ -14,6 +14,7 @@ function NavBar() {
       <li><Link to="/mandi">Mandi Prices</Link></li>
       <li><Link to="/farmer">Farmer</Link></li>
       <li><Link to="/buyer">Buyer</Link></li>
+      <li><Link to="/live-transit">Live Transit</Link></li>
 
     </>
   );

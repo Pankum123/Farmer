@@ -8,6 +8,7 @@ import { useAuth } from "./context/AuthProvider"
 import Mandi from "./mandi/Mandi"
 import Farmer from "./farmer/Farmer"
 import Buyer from "./buyer/Buyer"
+import Livetransit from "./livetransit/Livetransit"
 
 
 
@@ -41,6 +42,11 @@ function App() {
         <Route
           path="/buyer"
           element={<Buyer/>}
+        />
+
+        <Route
+          path="/live-transit"
+          element={<Livetransit/>}
         />
 
         <Route
