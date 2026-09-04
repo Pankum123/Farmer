@@ -97,7 +97,7 @@ function HomeBody() {
   ];
 
   return (
-    <div className="max-w-screen-2xl container mx-auto md:px-20 bg-gradient-to-b from-slate-100 via-emerald-50/30 to-slate-100 min-h-screen font-sans pb-16">
+    <div className="pt-20 max-w-screen-2xl container mx-auto md:px-20 bg-gradient-to-b from-slate-100 via-emerald-50/30 to-slate-100 min-h-screen font-sans pb-16">
       <main className="bg-white rounded-3xl shadow-2xl mt-12 overflow-hidden border border-slate-200/80">
         
         {/* 1. Hero Section - Deep Multi-Tone Gradient */}
