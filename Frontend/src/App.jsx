@@ -9,6 +9,7 @@ import Mandi from "./mandi/Mandi"
 import Farmer from "./farmer/Farmer"
 import Buyer from "./buyer/Buyer"
 import Livetransit from "./livetransit/Livetransit"
+import Aggregation from "./aggregation/Aggregation"
 
 
 
@@ -47,6 +48,11 @@ function App() {
         <Route
           path="/live-transit"
           element={<Livetransit/>}
+        />
+
+        <Route
+          path="/aggregation"
+          element={<Aggregation/>}
         />
 
         <Route

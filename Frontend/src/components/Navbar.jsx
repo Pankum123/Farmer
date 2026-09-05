@@ -15,6 +15,7 @@ function NavBar() {
       <li><Link to="/farmer">Farmer</Link></li>
       <li><Link to="/buyer">Buyer</Link></li>
       <li><Link to="/live-transit">Live Transit</Link></li>
+      <li><Link to="/aggregation">Cluster Aggregation</Link></li>
 
     </>
   );
