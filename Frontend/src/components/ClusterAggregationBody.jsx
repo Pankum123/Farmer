@@ -10,20 +10,21 @@ const FARMER_COORDS = {
 };
 const DEST_PUNE = { lat: 18.5204, lng: 73.8567 }; // Pune Processing Plant
 
-// Custom SVG Icons
-const GREEN_TRUCK_SVG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
-  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="#059669" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+// 1. FORWARD TRUCK SVG (Flipped Left for Westward Travel from Latur belt to Pune)
+const GREEN_TRUCK_WEST_SVG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
+  <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 24 24" fill="#059669" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1); transform-origin: center;">
     <rect x="1" y="3" width="15" height="13" rx="2" fill="#059669"></rect>
-    <polygon points="16 8 20 8 23 11 23 16 16 16 8" fill="#047857"></polygon>
+    <polygon points="16 8 20 8 23 11 23 16 16 8" fill="#047857"></polygon>
     <circle cx="5.5" cy="18.5" r="2.5" fill="#0f172a"></circle>
     <circle cx="18.5" cy="18.5" r="2.5" fill="#0f172a"></circle>
   </svg>
 `);
 
-const RED_TRUCK_SVG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
-  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="#dc2626" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+// 2. RETURN TRUCK SVG (Normal Right for Eastward Travel from Pune to Farmer Hub)
+const RED_TRUCK_EAST_SVG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
+  <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 24 24" fill="#dc2626" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <rect x="1" y="3" width="15" height="13" rx="2" fill="#dc2626"></rect>
-    <polygon points="16 8 20 8 23 11 23 16 16 16 8" fill="#b91c1c"></polygon>
+    <polygon points="16 8 20 8 23 11 23 16 16 8" fill="#b91c1c"></polygon>
     <circle cx="5.5" cy="18.5" r="2.5" fill="#0f172a"></circle>
     <circle cx="18.5" cy="18.5" r="2.5" fill="#0f172a"></circle>
   </svg>
@@ -149,7 +150,7 @@ function ClusterAggregationBody() {
           position: path[0],
           map: map,
           icon: {
-            url: isReturn ? RED_TRUCK_SVG : GREEN_TRUCK_SVG,
+            url: isReturn ? RED_TRUCK_EAST_SVG : GREEN_TRUCK_WEST_SVG,
             scaledSize: new window.google.maps.Size(44, 44),
             anchor: new window.google.maps.Point(22, 22)
           }
@@ -347,10 +348,10 @@ function ClusterAggregationBody() {
                     <h2 className="text-base font-black text-slate-900">
                       Live GPS Tracking: {activeTruck.truckNo} ({activeTruck.farmerName})
                     </h2>
-                    <p className="text-xs text-slate-500">{activeTruck.village} → Pune Processing Facility (15-Sec Live Simulation)</p>
+                    <p className="text-xs text-slate-500">{activeTruck.village} → Pune Processing Facility (15-Sec Live Simulation)[cite: 1]</p>
                   </div>
                   <span className="text-xs font-mono font-bold bg-amber-100 text-amber-900 px-3 py-1 rounded-full border border-amber-300 animate-pulse">
-                    Progress: {truckProgress}%
+                    Progress: {truckProgress}%[cite: 1]
                   </span>
                 </div>
 
@@ -358,8 +359,25 @@ function ClusterAggregationBody() {
                   <div className="bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 h-full transition-all duration-100 ease-linear" style={{ width: `${truckProgress}%` }}></div>
                 </div>
 
+                {/* Map Display with moving indicators */}
                 <div className="rounded-3xl overflow-hidden border-2 border-slate-300 shadow-2xl relative">
                   <div ref={mapRef} style={{ width: '100%', height: '440px' }}></div>
+
+                  {/* Flipped Moving Truck Indicator for Westward Movement */}
+                  <div 
+                    className="absolute bottom-6 pointer-events-none transition-all duration-100 ease-linear flex flex-col items-center z-20"
+                    style={{ left: `calc(${truckProgress}% * 0.85 + 5%)` }}
+                  >
+                    <span 
+                      className="text-3xl filter drop-shadow-md animate-bounce inline-block"
+                      style={{ transform: 'scaleX(-1)' }}
+                    >
+                      🚚
+                    </span>
+                    <span className="text-[10px] font-mono font-bold bg-emerald-600 text-white px-2 py-0.5 rounded shadow-lg whitespace-nowrap">
+                      {activeTruck.truckNo} ({truckProgress}%)
+                    </span>
+                  </div>
                 </div>
 
                 <div className="flex justify-between items-center text-xs font-mono text-slate-600 bg-slate-100 p-3 rounded-xl border">
@@ -444,6 +462,19 @@ function ClusterAggregationBody() {
 
                 <div className="rounded-3xl overflow-hidden border-2 border-rose-300 shadow-2xl relative">
                   <div ref={mapRef} style={{ width: '100%', height: '440px' }}></div>
+
+                  {/* Normal East-Facing Return Truck Indicator */}
+                  <div 
+                    className="absolute bottom-6 pointer-events-none transition-all duration-100 ease-linear flex flex-col items-center z-20"
+                    style={{ right: `calc(${truckProgress}% * 0.85 + 5%)` }}
+                  >
+                    <span className="text-3xl filter drop-shadow-md animate-bounce inline-block">
+                      🚛
+                    </span>
+                    <span className="text-[10px] font-mono font-bold bg-rose-600 text-white px-2 py-0.5 rounded shadow-lg whitespace-nowrap">
+                      RETURN ({truckProgress}%)
+                    </span>
+                  </div>
                 </div>
               </div>
             )}
