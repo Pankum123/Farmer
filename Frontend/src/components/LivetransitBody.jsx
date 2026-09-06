@@ -6,9 +6,9 @@ const GOOGLE_MAPS_API_KEY = "AIzaSyDHX3Rt8GtAzTfOQOmp1g_bzY8W37HO56c";
 const ORIGIN_LATUR = { lat: 18.4088, lng: 76.5604 };
 const DEST_PUNE = { lat: 18.5204, lng: 73.8567 };
 
-// Custom SVG Icons
-const GREEN_TRUCK_SVG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
-  <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 24 24" fill="#059669" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+// 1. FORWARD TRUCK (Flipped Left for Latur -> Pune Westward Movement)
+const GREEN_TRUCK_WEST_SVG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
+  <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 24 24" fill="#059669" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1); transform-origin: center;">
     <rect x="1" y="3" width="15" height="13" rx="2" fill="#059669"></rect>
     <polygon points="16 8 20 8 23 11 23 16 16 16 8" fill="#047857"></polygon>
     <circle cx="5.5" cy="18.5" r="2.5" fill="#0f172a"></circle>
@@ -16,7 +16,8 @@ const GREEN_TRUCK_SVG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent
   </svg>
 `);
 
-const RED_TRUCK_SVG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
+// 2. RETURN TRUCK (Normal Right for Pune -> Latur Eastward Movement)
+const RED_TRUCK_EAST_SVG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
   <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 24 24" fill="#dc2626" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <rect x="1" y="3" width="15" height="13" rx="2" fill="#dc2626"></rect>
     <polygon points="16 8 20 8 23 11 23 16 16 16 8" fill="#b91c1c"></polygon>
@@ -114,7 +115,8 @@ function LivetransitBody() {
           position: path[0],
           map: map,
           icon: {
-            url: isReturn ? RED_TRUCK_SVG : GREEN_TRUCK_SVG,
+            // Forward me Flipped Left Green Truck, Return me Straight Right Red Truck
+            url: isReturn ? RED_TRUCK_EAST_SVG : GREEN_TRUCK_WEST_SVG,
             scaledSize: new window.google.maps.Size(42, 42),
             anchor: new window.google.maps.Point(21, 21)
           }
@@ -294,12 +296,17 @@ function LivetransitBody() {
               <div className="relative rounded-3xl overflow-hidden border-2 border-slate-300 shadow-2xl bg-slate-900 h-[450px]">
                 <div ref={mapRef} className="w-full h-full"></div>
 
-                {/* Visual Moving Indicator on top of Map */}
+                {/* Moving Indicator on top of Map (Flipped Left for Westward Travel) */}
                 <div 
                   className="absolute bottom-6 pointer-events-none transition-all duration-100 ease-linear flex flex-col items-center z-20"
                   style={{ left: `calc(${truckProgress}% * 0.85 + 5%)` }}
                 >
-                  <span className="text-3xl filter drop-shadow-md animate-bounce">🚚</span>
+                  <span 
+                    className="text-3xl filter drop-shadow-md animate-bounce inline-block"
+                    style={{ transform: 'scaleX(-1)' }}
+                  >
+                    🚚
+                  </span>
                   <span className="text-[10px] font-mono font-bold bg-emerald-600 text-white px-2 py-0.5 rounded shadow-lg whitespace-nowrap">
                     MH-12-Q-4091 ({truckProgress}%)
                   </span>
@@ -407,7 +414,7 @@ function LivetransitBody() {
             </div>
           )}
 
-          {/* RETURN LOGISTICS (REJECT TRANSIT) */}
+          {/* RETURN LOGISTICS (REJECT TRANSIT: PUNE -> LATUR) */}
           {step === 'RETURN_TRANSIT' && (
             <div className="space-y-4">
               <div className="flex justify-between items-center">
@@ -430,11 +437,14 @@ function LivetransitBody() {
               <div className="relative rounded-3xl overflow-hidden border-2 border-rose-300 shadow-2xl bg-slate-900 h-[450px]">
                 <div ref={mapRef} className="w-full h-full"></div>
 
+                {/* Return Truck Facing Straight (Eastwards) */}
                 <div 
                   className="absolute bottom-6 pointer-events-none transition-all duration-100 ease-linear flex flex-col items-center z-20"
                   style={{ right: `calc(${truckProgress}% * 0.85 + 5%)` }}
                 >
-                  <span className="text-3xl filter drop-shadow-md animate-bounce">🚛</span>
+                  <span className="text-3xl filter drop-shadow-md animate-bounce inline-block">
+                    🚛
+                  </span>
                   <span className="text-[10px] font-mono font-bold bg-rose-600 text-white px-2 py-0.5 rounded shadow-lg whitespace-nowrap">
                     RETURN SHIPMENT ({truckProgress}%)
                   </span>
