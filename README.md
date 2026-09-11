@@ -42,17 +42,44 @@ The platform provides:
 ### 1. 🚚 Smart Order & Live Delivery
 
 * Buyers can select the most suitable crop based on **price, location, and availability** and place an order.
+
+   <img width="1761" height="537" alt="image" src="https://github.com/user-attachments/assets/bb3dd583-8ee2-4da4-8856-494f95587664" />
+
 * The buyer's payment is securely held by the **Admin** until successful delivery and verification.
+
+   <img width="1742" height="557" alt="image" src="https://github.com/user-attachments/assets/f25f5d8b-c514-41cd-bd18-e47f792fec57" />
+
 * Once the order is confirmed, a suitable vehicle is assigned to the farmer.
 * The crop is loaded and transported toward the buyer.
 * Both the **farmer and buyer can track the vehicle live on the map**.
 
+
+  <img width="1727" height="602" alt="image" src="https://github.com/user-attachments/assets/9469653b-96af-4684-9f4c-433347ec9070" />
+
+
 **After Delivery:**
 
 * ✅ **Accepted:** Admin releases the payment to the farmer.
+
+  <img width="1731" height="680" alt="image" src="https://github.com/user-attachments/assets/2e5c19ae-6b33-41bf-ad3b-f6f221443c83" />
+
 * ❌ **Rejected:** The vehicle returns the crop to the farmer and Admin refunds the buyer.
 
+
+  <img width="1752" height="646" alt="image" src="https://github.com/user-attachments/assets/7daa7740-9f5d-4a52-88d3-d9696b6e9bbf" />
+
+
+  <img width="1767" height="626" alt="image" src="https://github.com/user-attachments/assets/5e7a9a94-75be-4a15-8999-648be12dd4fb" />
+
+
 Finally, both farmer and buyer can provide **ratings and feedback**, helping build trust scores for future transactions.
+
+
+  <img width="1741" height="691" alt="image" src="https://github.com/user-attachments/assets/ef8e68f2-1d29-40b3-b696-7c2b34bd9be6" />
+
+
+  <img width="1757" height="746" alt="image" src="https://github.com/user-attachments/assets/57764124-d859-4f50-b1b7-af7c9de94f3f" />
+
 
 ---
 
@@ -64,6 +91,10 @@ Finally, both farmer and buyer can provide **ratings and feedback**, helping bui
 * Every farmer's lot is inspected separately at delivery.
 * Accepted lots receive individual payments.
 * Rejected lots are returned without affecting other farmers' transactions.
+
+
+   <img width="1757" height="751" alt="image" src="https://github.com/user-attachments/assets/7b7d6926-65c0-4a21-8a62-c8a13f07703d" />
+
 
 ---
 
