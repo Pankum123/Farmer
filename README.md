@@ -315,6 +315,10 @@ Farmer/
     └── vite.config.js
 ```
 
+## 🚀 Live Demo
+
+[🔗 View Live Application](https://farmer-gysa.onrender.com/)
+
 ## 👥 Team: GhostSquad
 
 **Developed for Smart India Hackathon 2026**
