@@ -75,10 +75,10 @@ The platform provides:
 Finally, both farmer and buyer can provide **ratings and feedback**, helping build trust scores for future transactions.
 
 
-  <img width="1741" height="691" alt="image" src="https://github.com/user-attachments/assets/ef8e68f2-1d29-40b3-b696-7c2b34bd9be6" />
+   <img width="1741" height="691" alt="image" src="https://github.com/user-attachments/assets/ef8e68f2-1d29-40b3-b696-7c2b34bd9be6" />
 
 
-  <img width="1757" height="746" alt="image" src="https://github.com/user-attachments/assets/57764124-d859-4f50-b1b7-af7c9de94f3f" />
+   <img width="1757" height="746" alt="image" src="https://github.com/user-attachments/assets/57764124-d859-4f50-b1b7-af7c9de94f3f" />
 
 
 ---
