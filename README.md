@@ -1,9 +1,9 @@
 # GhostSquad • Intelligent Agricultural Market Linkage & Escrow Settlement Platform
 
-**Smart India Hackathon 2026**
-**Problem Statement ID:** 26132
-**Title:** Strengthening market linkages and price discovery for farmers
-**Organization:** Government of Maharashtra
+**Smart India Hackathon 2026**  
+**Problem Statement ID:** 26132  
+**Title:** Strengthening market linkages and price discovery for farmers  
+**Organization:** Government of Maharashtra  
 **Theme:** Agriculture, FoodTech & Rural Development
 
 
