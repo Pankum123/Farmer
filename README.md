@@ -1,4 +1,4 @@
-# GhostSquad • Intelligent Agricultural Market Linkage & Escrow Settlement Platform
+# Ghost Squad • Intelligent Agricultural Market Linkage & Escrow Settlement Platform
 
 **Smart India Hackathon 2026**  
 **Problem Statement ID:** 26132  
@@ -319,7 +319,11 @@ Farmer/
 
 [🔗 View Live Application](https://farmer-gysa.onrender.com/)
 
-## 👥 Team: GhostSquad
+## 🚀 YouTube Video
+
+[🔗 YouTube Video Link](https://youtu.be/qafjkrSRKo0)
+
+## 👥 Team: Ghost Squad
 
 **Developed for Smart India Hackathon 2026**
 
